@@ -1,0 +1,5 @@
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" user added plugins
+Plugin 'scrooloose/nerdtree'
