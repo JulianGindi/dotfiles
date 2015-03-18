@@ -11,7 +11,7 @@ _git_prompt () {
     /^[^\? ]/ { staged += 1 }
     /^\?/ { new += 1 }
     END {
-      if (staged) { print "o"; exit }
+      if (staged) { print "x"; exit }
       if (modified) { print "x"; exit }
       if (new) { print "x"; exit }
       else { print "o"; exit }
