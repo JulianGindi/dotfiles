@@ -20,3 +20,7 @@ fi
 
 # Correcting Tmux Colors
 alias tmux="TERM=screen-256color-bce tmux"
+
+# Base16 Colorscheme
+BASE16_SHELL="$HOME/dotfiles/zsh/colors/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL

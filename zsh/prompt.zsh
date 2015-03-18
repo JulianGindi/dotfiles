@@ -22,11 +22,11 @@ _git_prompt () {
     _git_status="  "
   fi
 
-  echo "%F{green}on%{$reset_color%} git:%F{magenta}$_git_branch%f$_git_status"
+  echo "%F{red}on%{$reset_color%} git:%F{blue}$_git_branch%f$_git_status"
 }
 
 export PROMPT='
-%(?..[%{$fg[red]%}%?%{$reset_color%}] )%{$fg[magenta]%}%m%{$reset_color%}: %{$fg[cyan]%}%~ \
+%(?..[%{$fg[red]%}%?%{$reset_color%}] )%{$fg[blue]%}%m%{$reset_color%}: %{$fg[yellow]%}%~ \
 $(_git_prompt)
 %{$fg[yellow]%}$%{$reset_color%} '
 
