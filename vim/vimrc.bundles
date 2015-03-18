@@ -3,3 +3,8 @@ Plugin 'gmarik/Vundle.vim'
 
 " user added plugins
 Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'austintaylor/vim-indentobject'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-commentary'
