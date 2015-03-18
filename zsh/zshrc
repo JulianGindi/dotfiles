@@ -59,11 +59,13 @@ fi
 . ~/logjammin/todo.sh
 
 # Other
-export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export BOTO_CONFIG="$HOME/.aws/config"
 
 # Grep Colors
 export GREP_COLORS='0;30;42'
+
+# Autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 unset config_files

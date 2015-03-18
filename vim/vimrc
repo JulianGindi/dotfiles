@@ -61,6 +61,13 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
+nnoremap <leader>t :CtrlP<CR>
+nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+
+" plugin settings
+let g:ctrlp_match_window = 'order:ttb,max:20'
+let g:NERDSpaceDelims=1
+let g:gitgutter_enabled = 0
 
 " Cursor set-up (with Tmux fix)
 if exists('$TMUX')
@@ -70,3 +77,21 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+" Python-Mode Specific Commands
+let g:pymode_doc = 1
+let g:pymode_rope = 0
+nmap <leader>; :PymodeLintAuto<CR>
+let g:pymode_doc_bind = 'K'
+let g:pymode_run = 1
+let g:pymode_run_bind = '<leader>r'
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 1
+let g:pymode_folding = 0
+
+" Making it easier to apply Macros
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
+
+" Theme for bottom bar
+let g:airline_theme='base16'

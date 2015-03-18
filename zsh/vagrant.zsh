@@ -8,3 +8,4 @@ vagrant_umask () {
 }
 
 alias vagrant=vagrant_umask
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
