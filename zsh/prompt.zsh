@@ -17,7 +17,11 @@ _git_prompt () {
       else { print "o"; exit }
     }'`
   if [[ -n $_git_status ]]; then
-    _git_status=" %F{green}$_git_status%f"
+    if [[ $_git_status == "x" ]]; then
+      _git_status=" %F{red}$_git_status%f"
+    else
+      _git_status=" %F{green}$_git_status%f"
+    fi
   else
     _git_status="  "
   fi

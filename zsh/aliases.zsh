@@ -24,10 +24,8 @@ alias ddu='find . -maxdepth 1 -type d -exec du -s {} \;'
 alias unix2dos='recode lat1..ibmpc'
 alias dos2unix='recode ibmpc..lat1'
 alias t='vim -c ":$" ~/.todo'
-alias todo='cat ~/.todo'
 alias p='ping www.make.sh'
 alias gs='git status --short'
-alias vi="vim"
 alias gg="git status"
 alias s="spotify"
 alias spoof="spoof-mac.py"
@@ -38,3 +36,4 @@ alias grep='grep --color=never'
 alias sed='sed -E'
 
 alias how="apropos"
+alias ds="du -sh"
