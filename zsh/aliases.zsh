@@ -32,7 +32,7 @@ alias spoof="spoof-mac.py"
 alias rsync="rsync --progress"
 
 # GREP and SED helpers
-alias grep='grep --color=never'
+alias grep='egrep --color=never'
 alias sed='sed -E'
 
 alias how="apropos"

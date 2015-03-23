@@ -11,13 +11,14 @@ filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/dotfiles/vim/Vundle.vim
-" call vundle#begin('~/dotfiles/vim/plugins')
 call vundle#rc()
 
 " install Vundle bundles
 if filereadable(expand("~/dotfiles/vim/vimrc.bundles"))
 	source ~/dotfiles/vim/vimrc.bundles
 endif
+
+source ~/dotfiles/vim/plugins/whitespace.vim
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
@@ -64,6 +65,17 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
+
+" To open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>T :enew<cr>
+
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
 
 " This fixes an annoying airline thing
 let g:bufferline_echo = 0
