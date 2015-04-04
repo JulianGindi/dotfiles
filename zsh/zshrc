@@ -34,6 +34,9 @@ export MUTT_EDITOR='vim'
 
 autoload colors; colors # ANSI color codes
 
+# Setting vi as key bindings
+set -o vi
+
 # history
 setopt HIST_REDUCE_BLANKS
 setopt HIST_IGNORE_DUPS

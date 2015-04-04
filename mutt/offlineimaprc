@@ -1,0 +1,38 @@
+[general]
+ui = TTY.TTYUI
+accounts = JulianGindi-Personal
+pythonfile=~/dotfiles/mutt/offlineimap.py
+fsync = False
+
+[Account JulianGindi-Personal]
+localrepository = JGP-Local
+remoterepository = JGP-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository JGP-Local]
+type = Maildir
+localfolders = ~/.mail/juliangindi-personal
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository JGP-Remote]
+maxconnections = 1
+type = Gmail
+remoteuser = juliangindi@gmail.com
+remotepasseval = get_keychain_pass(account="juliangindi@gmail.com", server="imap.gmail.com")
+realdelete = yes
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]
