@@ -37,3 +37,4 @@ alias sed='sed -E'
 
 alias how="apropos"
 alias ds="du -sh"
+eval "$(hub alias -s)"
