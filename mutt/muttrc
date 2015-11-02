@@ -57,6 +57,7 @@ mailboxes +juliangindi-personal/INBOX \
           +juliangindi-personal/sent \
           +juliangindi-personal/drafts \
           +juliangindi-personal/linuxKernel \
+          +juliangindi-personal/git \
           +temporary/search \
 
 # Other special folders.

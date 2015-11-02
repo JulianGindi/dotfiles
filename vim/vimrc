@@ -123,3 +123,11 @@ let g:pymode_syntax_slow_sync = 0
 let g:pymode_syntax_all = 1
 
 set fillchars+=stl:\ ,stlnc:\
+
+set undofile
+set undodir=~/.vim/undodir
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif

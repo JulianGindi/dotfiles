@@ -10,7 +10,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias ln='ln -i'
 alias dir='ll'
-alias l='ll'
 alias ll='ls -lh'
 alias la='ls -A'
 alias vi='vim'
@@ -37,4 +36,12 @@ alias sed='sed -E'
 
 alias how="apropos"
 alias ds="du -sh"
-eval "$(hub alias -s)"
+alias strace="dtruss"
+alias l="clear && pwd && ls -FGl"
+alias u="cd .. && l"
+alias scheme="rlwrap csi"
+alias digga="dig +short"
+alias ptr="dig +short -x"
+alias c="clear"
+alias remember="vim ~/Dropbox\ \(Personal\)/Documents/Bin/remember.txt"
+alias wunderlist="wunderline"

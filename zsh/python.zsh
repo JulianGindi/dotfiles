@@ -21,3 +21,7 @@ if which pip >/dev/null 2>&1; then
 
   export PIP_RESPECT_VIRTUALENV=true
 fi
+
+# Virtualenvwrapper stuff
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
