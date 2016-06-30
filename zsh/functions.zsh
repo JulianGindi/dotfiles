@@ -30,3 +30,7 @@ function aws_acc1() {
 function password() {
   openssl rand -base64 $1
 }
+
+function devlog() {
+  vim /Users/gindi/devlog.txt
+}

@@ -1,3 +1,4 @@
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 # python virtualenv
 if which virtualenvwrapper.sh >/dev/null 2>&1; then
   export WORKON_HOME=$HOME/.virtualenvs
