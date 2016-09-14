@@ -36,7 +36,6 @@ alias sed='sed -E'
 
 alias how="apropos"
 alias ds="du -sh"
-alias strace="dtruss"
 alias l="clear && pwd && ls -FGl"
 alias u="cd .. && l"
 alias scheme="rlwrap csi"

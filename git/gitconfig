@@ -14,16 +14,24 @@
       bdone = "!f() { git checkout ${1-next} && git up && git bclean ${1-next}; }; f"
 [user]
       name = Julian Gindi
-      email = juliangindi@gmail.com
+      email = _@gindi.io
+	signingkey = E9CF2C37
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
 [core]
-	editor = /usr/local/bin/vim
+	editor = /usr/bin/vim
 [grep]
   linenumber = true
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[commit]
+	gpgsign = true
+[sendemail]
+	smtpencryption = tls
+	smtpserver = box.gindi.io
+	smtpuser = "_@gindi.io"
+	smtpserverport = 587

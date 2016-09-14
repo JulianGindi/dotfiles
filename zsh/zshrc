@@ -74,14 +74,11 @@ unset config_files
 
 # Adding postgres.app to path
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
-ulimit -n 65536 65536
 
 # Adding shell script directory to path
 export PATH=$PATH:~/scripts
 export PATH="/usr/local/bin:$PATH"
 
-# Autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 export NVM_DIR="/Users/gindi/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
