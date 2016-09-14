@@ -44,3 +44,4 @@ alias ptr="dig +short -x"
 alias c="clear"
 alias remember="vim ~/Dropbox\ \(Personal\)/Documents/Bin/remember.txt"
 alias wunderlist="wunderline"
+alias vim=vim_custom

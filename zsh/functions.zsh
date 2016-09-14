@@ -23,14 +23,16 @@ function up() {
   esac
 }
 
-# Aws role deligation
-function aws_acc1() { 
-  . ~/.aws/mfacli.sh $1 863453247731 admin; }
-
 function password() {
   openssl rand -base64 $1
 }
 
-function devlog() {
-  vim /Users/gindi/devlog.txt
+function vim_custom() {
+  # First check for a vimrc in current directory
+  if [ -f vimrc ]
+  then
+    /usr/bin/vim -u vimrc
+  else
+    /usr/bin/vim
+  fi
 }
