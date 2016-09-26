@@ -31,8 +31,8 @@ function vim_custom() {
   # First check for a vimrc in current directory
   if [ -f vimrc ]
   then
-    /usr/bin/vim -u vimrc
+    /usr/bin/vim -u vimrc $1
   else
-    /usr/bin/vim
+    /usr/bin/vim $1
   fi
 }

@@ -34,9 +34,6 @@ export MUTT_EDITOR='vim'
 
 autoload colors; colors # ANSI color codes
 
-# Setting vi as key bindings
-set -o vi
-
 # history
 setopt HIST_REDUCE_BLANKS
 setopt HIST_IGNORE_DUPS
@@ -62,7 +59,6 @@ fi
 # . ~/logjammin/todo.sh
 
 # Other
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export BOTO_CONFIG="$HOME/.aws/config"
 export AWS_CONFIG_FILE="$HOME/.aws/config"
 
@@ -71,9 +67,6 @@ export GREP_COLORS='0;30;42'
 
 
 unset config_files
-
-# Adding postgres.app to path
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
 # Adding shell script directory to path
 export PATH=$PATH:~/scripts
@@ -85,5 +78,5 @@ export NVM_DIR="/Users/gindi/.nvm"
 
 export P4CONFIG=/Users/gindi/Desktop/Games/perforce-workspace/p4config.txt
 
-# Fuck Homebrew
-HOMEBREW_NO_ANALYTICS=1
+# Inspirational Message
+echo "REMEMBER: NO NEW SHIT!!"
