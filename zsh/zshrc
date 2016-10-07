@@ -75,8 +75,3 @@ export PATH="/usr/local/bin:$PATH"
 
 export NVM_DIR="/Users/gindi/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export P4CONFIG=/Users/gindi/Desktop/Games/perforce-workspace/p4config.txt
-
-# Inspirational Message
-echo "REMEMBER: NO NEW SHIT!!"
