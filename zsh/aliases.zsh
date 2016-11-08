@@ -45,3 +45,8 @@ alias c="clear"
 alias remember="vim ~/Dropbox\ \(Personal\)/Documents/Bin/remember.txt"
 alias wunderlist="wunderline"
 alias vim=vim_custom
+
+# Todo Stuff
+alias t='python ~/bin/t.py --task-dir ~/ownCloud/tasks --list tasks'
+alias tw='python ~/bin/t.py --task-dir ~/ownCloud/tasks --list work'
+alias task=t

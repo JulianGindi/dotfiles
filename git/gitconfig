@@ -15,11 +15,10 @@
 [user]
       name = Julian Gindi
       email = _@gindi.io
-	signingkey = E9CF2C37
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
-	required = true
+	required = false
 [core]
 	editor = /usr/bin/vim
 [grep]
@@ -29,7 +28,7 @@
 	smudge = git-lfs smudge %f
 	required = true
 [commit]
-	gpgsign = true
+	gpgsign = false
 [sendemail]
 	smtpencryption = tls
 	smtpserver = box.gindi.io

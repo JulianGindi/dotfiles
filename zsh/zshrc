@@ -70,7 +70,7 @@ unset config_files
 
 # Adding shell script directory to path
 export PATH=$PATH:~/scripts
-export PATH="/usr/local/bin:$PATH"
+export PATH="~/bin:/usr/local/bin:$PATH"
 
 
 export NVM_DIR="/Users/gindi/.nvm"
