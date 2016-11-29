@@ -1,2 +1,2 @@
 # Starting ssh-agent on login
-eval `keychain -q --eval ~/.ssh/jg_ditto`
+eval `keychain -q --eval ~/.ssh/id_ed25519`

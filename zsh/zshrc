@@ -65,16 +65,8 @@ export AWS_CONFIG_FILE="$HOME/.aws/config"
 # Grep Colors
 export GREP_COLORS='0;30;42'
 
-
 unset config_files
 
 # Adding shell script directory to path
 export PATH=$PATH:~/scripts
 export PATH="~/bin:/usr/local/bin:$PATH"
-
-
-export NVM_DIR="/Users/gindi/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# Autojump functionality
-. /usr/share/autojump/autojump.sh

@@ -36,3 +36,7 @@ function vim_custom() {
     /usr/bin/vim $1
   fi
 }
+
+function brightness() {
+  xbacklight -set $1
+}
