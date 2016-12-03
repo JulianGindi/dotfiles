@@ -45,3 +45,4 @@ alias vim=vim_custom
 alias t='python ~/bin/t.py --task-dir ~/ownCloud/tasks --list tasks'
 alias tw='python ~/bin/t.py --task-dir ~/ownCloud/tasks --list work'
 alias task=t
+alias lock=i3lock
