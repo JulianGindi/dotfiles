@@ -40,3 +40,8 @@ function vim_custom() {
 function brightness() {
   xbacklight -set $1
 }
+
+function ramdisk() {
+  mkdir /tmp/ramdisk && chmod 777 /tmp/ramdisk &&
+    sudo mount -t tmpfs -o size=512M tmpfs /tmp/ramdisk
+}

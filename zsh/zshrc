@@ -15,6 +15,9 @@ do
   source $file
 done
 
+# emacs key bindings
+set -o emacs
+
 # load everything but the path file
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do

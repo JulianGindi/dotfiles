@@ -3,5 +3,5 @@
 # Aliases
 alias files=ranger
 alias qq='i3lock && systemctl suspend'
-alias sound='alsamixer'
+alias sound='pulsemixer'
 alias build='makepkg -si'

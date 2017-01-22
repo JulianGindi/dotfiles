@@ -42,7 +42,10 @@ alias wunderlist="wunderline"
 alias vim=vim_custom
 
 # Todo Stuff
-alias t='python ~/bin/t.py --task-dir ~/ownCloud/tasks --list tasks'
-alias tw='python ~/bin/t.py --task-dir ~/ownCloud/tasks --list work'
+alias t="python ~/bin/t.py --task-dir ~/ownCloud/tasks --list tasks"
+alias tw="python ~/bin/t.py --task-dir ~/ownCloud/tasks --list work"
 alias task=t
 alias lock=i3lock
+alias notes="vim ~/Nextcloud/Documents/notes/notes.txt"
+alias todo="vim ~/todo.txt"
+alias flux="xflux"
