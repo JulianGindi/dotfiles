@@ -15,21 +15,9 @@
 [user]
       name = Julian Gindi
       email = _@gindi.io
-	signingkey = 8BF568DD092123F250D302569B57E0B5C2D5263B
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = false
 [core]
 	editor = /usr/bin/vim
 [grep]
   linenumber = true
-[commit]
-	gpgsign = true
-[sendemail]
-	smtpencryption = tls
-	smtpserver = box.gindi.io
-	smtpuser = "_@gindi.io"
-	smtpserverport = 587
 [color]
 	ui = auto
