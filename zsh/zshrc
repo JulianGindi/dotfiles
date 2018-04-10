@@ -73,3 +73,6 @@ unset config_files
 # Adding shell script directory to path
 export PATH=$PATH:~/scripts
 export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
+
+# Path for RUST
+export PATH="$HOME/.cargo/bin:$PATH"
