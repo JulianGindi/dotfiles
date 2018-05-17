@@ -128,6 +128,8 @@ let g:airline_theme='base16'
 let g:pymode_syntax = 1
 let g:pymode_syntax_slow_sync = 0
 let g:pymode_syntax_all = 1
+let g:syntastic_enable_perl_checker = 1
+let g:syntastic_racket_checkers=['']
 
 set fillchars+=stl:\ ,stlnc:\
 

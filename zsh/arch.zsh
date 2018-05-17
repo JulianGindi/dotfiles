@@ -5,3 +5,6 @@ alias files=ranger
 alias qq='i3lock && systemctl suspend'
 alias sound='pulsemixer'
 alias build='makepkg -si'
+
+# High DPI Stuff
+export GDK_SCALE=2
