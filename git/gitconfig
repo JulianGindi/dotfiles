@@ -17,6 +17,7 @@
       email = _@gindi.io
 [core]
 	editor = /usr/bin/vim
+	excludesfile = /Users/julian/.gitignore
 [grep]
   linenumber = true
 [color]

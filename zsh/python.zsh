@@ -1,2 +1,4 @@
 export WORKON_HOME=~/.virtualenvs
-source $HOME/.local/bin/virtualenvwrapper.sh
+VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+eval "$(pyenv init -)"
