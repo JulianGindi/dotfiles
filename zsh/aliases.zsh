@@ -23,7 +23,7 @@ alias gg="git status"
 alias rsync="rsync --progress"
 
 # GREP and SED helpers
-alias grep='egrep --color=never'
+#alias grep='egrep --color=never'
 alias sed='sed -E'
 
 alias how="apropos"
@@ -41,3 +41,6 @@ alias lock=i3lock
 alias notes="vim ~/Nextcloud/Documents/notes/notes.txt"
 alias todo="vim ~/todo.txt"
 alias flux="xflux"
+
+# Kubernetes Tools
+alias gui="octant"

@@ -55,11 +55,11 @@ bindkey "^[[B" down-line-or-beginning-search
 
 
 # user-dependent settings
-if [[ "`id -u`" -eq 0 ]]; then
-  umask 022
-else
-  umask 077
-fi
+#if [[ "`id -u`" -eq 0 ]]; then
+#  umask 022
+#else
+#  umask 077
+#fi
 
 # Other
 export BOTO_CONFIG="$HOME/.aws/config"
@@ -74,7 +74,12 @@ unset config_files
 export PATH=$PATH:~/scripts
 export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/julian/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/julian/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/julian/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/julian/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/julian/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/julian/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/julian/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/julian/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Configuration for Antlr
+export CLASSPATH=".:/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH"
+alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'

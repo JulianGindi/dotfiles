@@ -53,3 +53,26 @@ function football() {
 function timezone() {
   timedatectl set-timezone $(curl https://ipapi.co/timezone)
 }
+
+function strongkey() {
+  ssh-keygen -t ed25519 -a 100 -C "julian@gindi.io"
+}
+
+function _ssh_companion() {
+  local SSH_AGENT_SIDECAR=ssh-agent
+
+  docker start ${SSH_AGENT_SIDECAR} 1&> /dev/null || \
+    (
+      docker run -d \
+        --name ${SSH_AGENT_SIDECAR} \
+        nardeas/ssh-agent 1&> /dev/null \
+        && \
+        docker run -it --rm \
+        --volumes-from=ssh-agent \
+        -v ~/.ssh:/.ssh \
+        nardeas/ssh-agent \
+        ssh-add /root/.ssh/id_rsa
+      )
+    }
+
+  alias ssh-companion=_ssh_companion

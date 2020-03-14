@@ -14,11 +14,16 @@
       bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
 [user]
       name = Julian Gindi
-      email = _@gindi.io
+      email = julian@gindi.io
 [core]
 	editor = /usr/bin/vim
-	excludesfile = /Users/julian/.gitignore
+	excludesfile = /Users/julian/dotfiles/git/Python.gitignore
 [grep]
   linenumber = true
 [color]
 	ui = auto
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
