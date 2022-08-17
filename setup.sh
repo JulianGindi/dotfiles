@@ -4,6 +4,7 @@ ln -s $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
 ln -s $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
+ln -s $HOME/dotfiles/dig/digrc $HOME/.digrc
 
 # Change default shell
 chsh -s $(which zsh)
