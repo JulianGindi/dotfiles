@@ -14,7 +14,7 @@
       bdone = "!f() { git checkout ${1-main} && git up && git bclean ${1-main}; }; f"
 [user]
 	name = Julian Gindi
-	email = jgindi@riotgames.com
+	email = julian@gindi.io
 [core]
 	editor = /usr/bin/vim
 	excludesfile = /Users/julian/dotfiles/git/Python.gitignore

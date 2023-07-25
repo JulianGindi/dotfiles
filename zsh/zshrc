@@ -74,17 +74,12 @@ unset config_files
 # Adding shell script directory to path
 export PATH=$PATH:~/scripts
 export PATH="$HOME/.local/bin:/usr/local/bin:~/.bin:$PATH"
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/julian/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/julian/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/julian/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/julian/google-cloud-sdk/completion.zsh.inc'; fi
+# bun completions
+[ -s "/Users/jgindi/.bun/_bun" ] && source "/Users/jgindi/.bun/_bun"
 
-# Configuration for Antlr
-export CLASSPATH=".:/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH"
-alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
-alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
-
-# Created by `userpath` on 2020-09-25 18:53:31
-export PATH="$PATH:/Users/jgindi/Library/Python/3.8/bin"
-export GPG_TTY=$(tty)
+# bun and other PATH additions
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/bin/zig:$PATH"
+export PATH="/Applications/Racket v8.6/bin:$PATH"

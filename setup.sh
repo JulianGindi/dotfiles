@@ -19,11 +19,11 @@ git clone https://github.com/VundleVim/Vundle.vim.git $HOME/dotfiles/vim/Vundle.
 vim +PluginInstall +qall
 
 # Installing some needed packages to make everything work nicely
-sudo apt-get install python python-pip python3
-sudo apt-get install python-virtualenv
+#sudo apt-get install python python-pip python3
+#sudo apt-get install python-virtualenv
 
 # Install virtualenvwrapper with pip
-pip install virtualenvwrapper
+#pip install virtualenvwrapper
 
 # Refresh zsh
 exec zsh

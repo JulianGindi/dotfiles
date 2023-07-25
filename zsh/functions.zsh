@@ -46,10 +46,6 @@ function ramdisk() {
     sudo mount -t tmpfs -o size=512M tmpfs /tmp/ramdisk
 }
 
-function football() {
-  cp "/home/gindi/.var/app/com.valvesoftware.Steam/Sports Interactive/Football Manager 2018/games/fcsm.fm" ~/Nextcloud/
-}
-
 function timezone() {
   timedatectl set-timezone $(curl https://ipapi.co/timezone)
 }
@@ -76,3 +72,7 @@ function _ssh_companion() {
     }
 
   alias ssh-companion=_ssh_companion
+
+function clippy() {
+  cargo clippy --all -- -D warnings
+}
