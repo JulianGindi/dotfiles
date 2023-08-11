@@ -52,10 +52,13 @@ autocmd BufRead,BufNewFile *.c,*.h,*.cpp set noic cin noexpandtab
 
 " keyboard shortcuts
 let mapleader = ','
+" Remaps to make navigating splits easier
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
+" Plugin-related shortcuts
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>t :CtrlP<CR>
@@ -66,7 +69,6 @@ nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 nnoremap Q @q
 vnoremap Q :norm @q<cr>
 
-" TODO: Eventually re-enable this after I re-learn buffers
 " -------- BUFFERS --------
 " To open a new empty buffer
 " This replaces :tabnew which I used to bind to this mapping
@@ -81,24 +83,26 @@ nmap <leader>h :bprevious<CR>
 " This fixes an annoying airline thing
 let g:bufferline_echo = 0
 
-" plugin settings
+" plugin-specific settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
-let g:gitgutter_enabled = 0
+
 
 " NERDTree Specific configuration
-
 " Ignoring pyc files
 let NERDTreeIgnore = ['\.pyc$']
 
+
+" Terminal and other visual-related settings
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
 let base16colorspace=256  " Access colors present in 256 colorspace
-" set termguicolors
 
 " Theme for bottom bar
 let g:airline_theme='base16'
+
+" Language-specific configuration
 
 " Python Syntax and other configuration
 let g:python_highlight_all = 1
