@@ -34,7 +34,6 @@ alias cl="rlwrap sbcl"
 alias digga="dig +short"
 alias ptr="dig +short -x"
 alias c="clear"
-alias vim=vim_custom
 
 # Todo Stuff
 alias lock=i3lock
