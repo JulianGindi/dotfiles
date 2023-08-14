@@ -75,11 +75,5 @@ unset config_files
 export PATH=$PATH:~/scripts
 export PATH="$HOME/.local/bin:/usr/local/bin:~/.bin:$PATH"
 
-# bun completions
-[ -s "/Users/jgindi/.bun/_bun" ] && source "/Users/jgindi/.bun/_bun"
-
-# bun and other PATH additions
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="$HOME/bin/zig:$PATH"
-export PATH="/Applications/Racket v8.6/bin:$PATH"
+export PATH="/Applications/Racket v8.9/bin:$PATH"
+export PATH="$HOME/.emacs.d/bin:$PATH"
