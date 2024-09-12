@@ -6,8 +6,11 @@ ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
 ln -s $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
 ln -s $HOME/dotfiles/dig/digrc $HOME/.digrc
 
+# Fish Config
+ln -s $HOME/dotfiles/fish/* $HOME/.config/fish
+
 # Change default shell
-chsh -s $(which zsh)
+# chsh -s $(which zsh)
 
 # Removing old vim package manager and reinstall
 rm -rf vim/Vundle.vim
@@ -18,12 +21,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git $HOME/dotfiles/vim/Vundle.
 # Install vim plugins
 vim +PluginInstall +qall
 
-# Installing some needed packages to make everything work nicely
-#sudo apt-get install python python-pip python3
-#sudo apt-get install python-virtualenv
-
 # Install virtualenvwrapper with pip
 #pip install virtualenvwrapper
 
 # Refresh zsh
-exec zsh
+# exec zsh
