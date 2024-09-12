@@ -7,17 +7,14 @@ export ZSH=~/dotfiles/zsh
 typeset -U config_files
 config_files=($ZSH/*.zsh)
 
-# Emacs key bindings
-set -o emacs
+# vi key bindings
+set -o vi
 
 # Load all additional files
 for file in $config_files
 do
   source $file
 done
-
-# emacs key bindings
-set -o emacs
 
 # load everything but the path file
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
@@ -75,5 +72,7 @@ unset config_files
 export PATH=$PATH:~/scripts
 export PATH="$HOME/.local/bin:/usr/local/bin:~/.bin:$PATH"
 
-export PATH="/Applications/Racket v8.9/bin:$PATH"
-export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="/Applications/PyCharm.app/Contents/MacOS:$PATH"
+
+[ -f "/Users/jgindi/.ghcup/env" ] && . "/Users/jgindi/.ghcup/env" # ghcup-env
+export PATH="$PATH:$HOME/.bin"
