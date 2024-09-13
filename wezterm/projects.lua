@@ -39,7 +39,7 @@ function module.choose_project()
             child_window:perform_action(wezterm.action.SwitchToWorkspace {
                 name = label:match("([^/]+)$"),
                 spawn = { cwd = label },
-            }, child_pan)
+            }, child_pane)
         end),
     }
 end

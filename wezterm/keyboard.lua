@@ -62,7 +62,7 @@ function module.setup_keys(config)
     {
         key = 'f',
         mods = 'LEADER',
-        action = wezterm.action.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES'},
+        action = wezterm.action.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' },
     },
     -- Passing LEADER to the terminal if called twice
     {

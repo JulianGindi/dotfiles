@@ -4,6 +4,9 @@ if status is-interactive
 end
 
 # Aliases
+alias c="clear"
 alias gg="git status"
 alias l="clear && pwd && ls -FGl"
+alias ll="ls -lh"
 alias u="cd .. && l"
+alias vi="vim"
