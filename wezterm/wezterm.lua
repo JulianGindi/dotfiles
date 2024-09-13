@@ -30,6 +30,9 @@ wezterm.on('update-status', function(window, pane)
   local bg = color_scheme.background
   local fg = color_scheme.foreground
 
+  -- Get the date and time
+  local date = wezterm.strftime '%Y-%m-%d %H:%M'
+
   window:set_right_status(wezterm.format({
     -- First, we draw the arrow...
     { Background = { Color = 'none' } },
@@ -38,7 +41,7 @@ wezterm.on('update-status', function(window, pane)
     -- Then we draw our text
     { Background = { Color = bg } },
     { Foreground = { Color = fg } },
-    { Text = ' ' .. wezterm.hostname() .. ' ' },
+    { Text = ' ' .. date .. ' ' },
   }))
 end)
 
