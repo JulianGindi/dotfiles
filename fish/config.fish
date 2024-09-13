@@ -5,3 +5,5 @@ end
 
 # Aliases
 alias gg="git status"
+alias l="clear && pwd && ls -FGl"
+alias u="cd .. && l"
