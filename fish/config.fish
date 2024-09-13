@@ -1,5 +1,5 @@
 if status is-interactive
-    # Python-specific configuration
+    # Initializing pyenv
     pyenv init - | source
 end
 
