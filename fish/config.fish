@@ -1,9 +1,7 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    # Python-specific configuration
+    pyenv init - | source
 end
 
 # Aliases
 alias gg="git status"
-
-# Python-specific configuration
-pyenv init - | source
