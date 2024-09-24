@@ -6,7 +6,7 @@ local module = {}
 local function setup_general_theme(config)
     -- (This is where our main config will go)
     config.color_scheme = 'Tokyo Night'
-    config.font = wezterm.font({family = 'SF Mono'})
+    config.font = wezterm.font({family = 'DM Mono'})
     config.font_size = 16
 end
 
