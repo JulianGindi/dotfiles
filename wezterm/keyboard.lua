@@ -21,7 +21,7 @@ function module.setup_keys(config)
     }
 
     -- Define our keybindings
-    config.keys = { 
+    config.keys = {
     -- Moving through tabs
     {
         key = 'n',
@@ -47,7 +47,7 @@ function module.setup_keys(config)
         action = wezterm.action.SplitVertical {
             domain = 'CurrentPaneDomain'
         }
-    }, 
+    },
     -- setting up the keybindings for moving panes
     move_pane('j', 'Down'),
     move_pane('k', 'Up'),
