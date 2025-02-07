@@ -5,17 +5,16 @@
 #
 
 # Create symlinks
-# ln -s $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
-# ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
-# ln -s $HOME/dotfiles/dig/digrc $HOME/.digrc
 
 # Fish configs
 ln -s $HOME/dotfiles/fish/ $HOME/.config/fish
 
 # Wezterm configs
 ln -s $HOME/dotfiles/wezterm/ $HOME/.config/wezterm
+
+# Neovim configs
+ln -s $HOME/dotfiles/nvim/ $HOME/.config/nvim
 
 # Change default shell
 # Note: Changing the default shell now happens in my wezterm terminal configuration

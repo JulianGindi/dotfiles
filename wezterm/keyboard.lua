@@ -30,7 +30,7 @@ function module.setup_keys(config)
 		},
 		{
 			key = "w",
-			mods = "CTRL",
+			mods = "LEADER",
 			action = wezterm.action.CloseCurrentTab({ confirm = true }),
 		},
 		-- Moving through tabs
