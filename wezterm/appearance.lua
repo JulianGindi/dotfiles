@@ -7,7 +7,7 @@ local function setup_general_theme(config)
     -- (This is where our main config will go)
     config.color_scheme = 'Tokyo Night'
     config.font = wezterm.font({family = 'DM Mono'})
-    config.font_size = 17
+    config.font_size = 12
 end
 
 local function setup_window_theme(config)
@@ -58,6 +58,11 @@ function module.draw_right_status(window, pane)
 
     -- We'll build up the elements to send to wezterm.format in this table.
     local elements = {}
+    
+    local status_font = {
+        family = 'inherit', -- This keeps your current font family
+        size = 10.0        -- Adjust this value to your preferred size
+    }
 
     for i, seg in ipairs(segments) do
         local is_first = i == 1
@@ -66,10 +71,12 @@ function module.draw_right_status(window, pane)
           table.insert(elements, { Background = { Color = 'none' } })
         end
         table.insert(elements, { Foreground = { Color = gradient[i] } })
+        table.insert(elements, { Attribute = { Intensity = "Half" } })
         table.insert(elements, { Text = SOLID_LEFT_ARROW })
     
         table.insert(elements, { Foreground = { Color = fg } })
         table.insert(elements, { Background = { Color = gradient[i] } })
+        table.insert(elements, { Attribute = { Intensity = "Half" } })
         table.insert(elements, { Text = ' ' .. seg .. ' ' })
     end
 

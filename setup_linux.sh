@@ -9,10 +9,10 @@ ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 ln -s $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
 
 # Fish configs - TODO: Find out where fish config lives
-# ln -s $HOME/dotfiles/fish/ $HOME/.config/fish
+ln -s $HOME/dotfiles/fish/ $HOME/.config/fish
 
 # Wezterm configs - TODO: Figure out where this should live on Linux machines
-# ln -s $HOME/dotfiles/wezterm/ $HOME/.config/wezterm
+ln -s $HOME/dotfiles/wezterm/ $HOME/.config/wezterm
 
 # I no longer need to change the default shell since I'm using Cachy OS 
 # which defaults to Fish shell now (nice!)

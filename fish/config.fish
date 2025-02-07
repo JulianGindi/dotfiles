@@ -1,7 +1,7 @@
-if status is-interactive
-    # Initializing pyenv
-    pyenv init - | source
-end
+# if status is-interactive
+#     # Initializing pyenv
+#     pyenv init - | source
+# end
 
 # Aliases
 alias c="clear"
@@ -10,4 +10,5 @@ alias l="clear && pwd && ls -FGl"
 alias ll="ls -lh"
 alias u="cd .. && l"
 alias vi="vim"
-~/.local/bin/mise activate fish | source
+alias code="vscodium"
+# ~/.local/bin/mise activate fish | source

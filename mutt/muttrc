@@ -1,0 +1,112 @@
+# Set up all the folders
+set folder="~/.mail/box.gindi.io"
+mailboxes = +INBOX
+mailboxes = +'Sent Messages'
+mailboxes = +'Trash'
+mailboxes = +'Archive'
+mailboxes = +'BSD'
+mailboxes = +'holding'
+set spoolfile = +INBOX
+set trash = +'Trash'
+set postponed = +'Drafts'
+set record = +'Sent Messages'
+set wrap = 72
+
+# Sort by reverse date
+set sleep_time = 0
+set sort = 'reverse-date'
+
+# Default sending charset
+set send_charset="utf-8"
+
+# SMTP FOR SENDING EMAIL
+set realname="Julian Gindi"
+set my_user=julian@gindi.io
+set my_pass="`pass show email/box.gindi.io`"
+set from = julian@gindi.io
+set smtp_url=smtps://$my_user:$my_pass@box.gindi.io
+
+# Sending mail options
+set edit_headers=yes
+set use_from=yes
+set fast_reply=yes
+set include=yes
+set forward_quote=yes
+
+# SSL options
+set ssl_force_tls = yes
+set ssl_starttls = yes
+
+# Default text editor
+set editor = $EDITOR
+
+# Ways to open the mail messages
+auto_view text/html
+alternative_order text/plain text/html
+
+set markers = no
+set mark_old = no
+
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set forward_quote                    # include message in forwards
+set reverse_name                     # reply as whomever it was to
+#set include                          # include message in replies
+
+auto_view text/html
+auto_view application/pgp-encrypted
+alternative_order text/plain text/enriched text/html
+set rfc2047_parameters = yes
+
+# Date and index formatting styles
+set date_format="%m-%d-%y %T"
+set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"# -*-muttrc-*-
+
+# Sidebar Patch
+set sidebar_visible = yes
+set sidebar_width = 24
+
+# Status Bar
+set status_chars = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Header Options
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: date: subject:
+
+# Index Key Bindings
+bind index gg first-entry
+bind index G last-entry
+
+bind index R group-reply
+bind index <tab> sync-mailbox
+
+# Sync email
+macro index o "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# Sidebar Navigration
+bind index,pager <down> sidebar-next
+bind index,pager <up> sidebar-prev
+bind index,pager <right> sidebar-open
+
+# Pager View Options
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
+
+# Pager Key Bindings
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+
+bind pager R  group-reply

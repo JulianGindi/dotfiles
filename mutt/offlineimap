@@ -1,0 +1,22 @@
+[general]
+metadata = ~/.offlineimap
+accounts = box.gindi.io
+pythonfile = ~/.mutt/offlineimap.py
+socktimeout = 60
+
+[Account box.gindi.io]
+localrepository = local-box.gindi.io
+remoterepository = remote-box.gindi.io
+
+[Repository local-box.gindi.io]
+type = Maildir
+localfolders = ~/.mail/box.gindi.io
+
+[Repository remote-box.gindi.io]
+type = IMAP
+remotehost = box.gindi.io
+remoteuser = julian@gindi.io
+remotepasseval = get_keychain_pass(account="julian@gindi.io", server="box.gindi.io")
+ssl = yes
+realdelete = no
+sslcacertfile = /etc/ssl/cert.pem
