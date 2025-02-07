@@ -1,5 +1,5 @@
 if status is-interactive
-    # Initializing pyenv
+    # Initializing pyenv if the shell is interactive
     pyenv init - | source
 end
 
@@ -12,4 +12,5 @@ alias u="cd .. && l"
 alias vim="nvim"
 alias vi="nvim"
 
+# Third-party activations
 ~/.local/bin/mise activate fish | source
