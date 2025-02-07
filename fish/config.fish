@@ -9,6 +9,7 @@ alias gg="git status"
 alias l="clear && pwd && ls -FGl"
 alias ll="ls -lh"
 alias u="cd .. && l"
-alias vi="vim"
+alias vim="nvim"
+alias vi="nvim"
 alias code="vscodium"
 # ~/.local/bin/mise activate fish | source
