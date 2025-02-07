@@ -28,6 +28,11 @@ function module.setup_keys(config)
 			mods = "LEADER",
 			action = wezterm.action.SpawnTab("CurrentPaneDomain"),
 		},
+		{
+			key = "w",
+			mods = "CTRL",
+			action = wezterm.action.CloseCurrentTab({ confirm = true }),
+		},
 		-- Moving through tabs
 		{
 			key = "n",
