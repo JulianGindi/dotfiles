@@ -11,6 +11,7 @@ return {
 			automatic_installation = true,
 			ensure_installed = {
 				"clojure_lsp",
+				"fennel_language_server",
 				"ts_ls",
 				"jsonls",
 				"ast_grep",
