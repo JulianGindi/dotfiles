@@ -5,7 +5,6 @@
 #
 
 # Create symlinks
-ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 
 # Fish configs
 ln -s $HOME/dotfiles/fish/ $HOME/.config/fish
@@ -21,12 +20,3 @@ ln -s $HOME/dotfiles/nvim/ $HOME/.config/nvim
 
 # Setup some Wezterm workspace stuff
 mkdir $HOME/.projects
-
-# Removing old vim package manager and reinstall
-rm -rf vim/Vundle.vim
-
-# Clone new Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/dotfiles/vim/Vundle.vim
-
-# Install vim plugins
-vim +PluginInstall +qall

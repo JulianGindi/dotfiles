@@ -14,17 +14,10 @@ ln -s $HOME/dotfiles/fish/ $HOME/.config/fish
 # Wezterm configs - TODO: Figure out where this should live on Linux machines
 ln -s $HOME/dotfiles/wezterm/ $HOME/.config/wezterm
 
+ln -s $HOME/dotfiles/nvim/ $HOME/.config/nvim
+
 # I no longer need to change the default shell since I'm using Cachy OS 
 # which defaults to Fish shell now (nice!)
 
 # Setup some Wezterm workspace stuff
 mkdir $HOME/.projects
-
-# Removing old vim package manager and reinstall
-rm -rf vim/Vundle.vim
-
-# Clone new Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/dotfiles/vim/Vundle.vim
-
-# Install vim plugins
-vim +PluginInstall +qall
