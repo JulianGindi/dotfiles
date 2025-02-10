@@ -5,9 +5,18 @@ local module = {}
 
 local function setup_general_theme(config)
 	-- (This is where our main config will go)
+	-- We will keep these themes despite OS
 	config.color_scheme = "Tokyo Night"
 	config.font = wezterm.font({ family = "DM Mono" })
-	config.font_size = 13
+
+	-- Grab current OS
+	local os_name = wezterm.target_triple
+
+	if os_name:find("darwin") then
+		config.font_size = 16
+	else
+		config.font_size = 13
+	end
 end
 
 local function setup_window_theme(config)
