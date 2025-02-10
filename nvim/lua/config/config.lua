@@ -15,3 +15,7 @@ o.showmatch = true -- When a bracket is inserted, briefly jump to the matching o
 -- Keyboard mappings
 local keymap = vim.keymap
 keymap.set("n", "<leader>m", "<cmd>Neorg index<cr>")
+keymap.set("n", "<leader>1", "<cmd>Neorg journal today<cr>")
+
+-- Tab creation and navigation
+keymap.set("n", "<leader>t", "<cmd>:tabnew<cr>")
