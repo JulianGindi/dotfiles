@@ -12,6 +12,7 @@ return {
 					config = {
 						workspaces = {
 							notes = "~/Nextcloud/org/notes",
+							other = "~/Nextcloud/org/other",
 						},
 						default_workspace = "notes",
 					},
