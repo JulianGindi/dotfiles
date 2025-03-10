@@ -13,6 +13,8 @@ o.title = true -- When on, the title of the window will be set to the value of '
 o.showmatch = true -- When a bracket is inserted, briefly jump to the matching one
 o.ignorecase = true -- Ignoring case when searching
 
+global.autoformat = false
+
 -- General Keyboard mappings
 local keymap = vim.keymap
 keymap.set("n", "<leader>m", "<cmd>Neorg index<cr>")
