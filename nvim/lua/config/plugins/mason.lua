@@ -16,6 +16,7 @@ return {
 				"jsonls",
 				"ast_grep",
 				"pyright",
+				"omnisharp",
 			},
 		})
 

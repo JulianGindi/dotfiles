@@ -38,6 +38,36 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["omnisharp"] = function()
+				nvim_lsp["omnisharp"].setup({
+					cmd = { "dotnet", "/Users/jgindi/bin/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
+					on_attach = on_attach,
+					capabilities = capabilities,
+					handlers = {
+						["textDocument/definition"] = require("omnisharp_extended").handler,
+					},
+					settings = {
+						FormattingOptions = {
+							EnableEditorConfigSupport = true,
+						},
+						RoslynExtensionsOptions = {
+							EnableAnalyzersSupport = true,
+							EnableImportCompletion = true,
+						},
+						SDK = {
+							IncludePrereleases = true,
+						},
+						EnableMsBuildLoadProjectsOnDemand = true,
+						EnableImportCompletion = true,
+						EnableRoslynAnalyzers = true,
+						OrganizeImports = true,
+						AnalyzeOpenDocumentsOnly = true,
+					},
+					root_dir = function(fname)
+						return require("lspconfig.util").root_pattern("*.sln", "*.csproj")(fname) or vim.fn.getcwd()
+					end,
+				})
+			end,
 			["fennel_language_server"] = function()
 				nvim_lsp["fennel_language_server"].setup({
 					on_attach = on_attach,
