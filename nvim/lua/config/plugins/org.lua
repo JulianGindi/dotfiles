@@ -21,7 +21,7 @@ return {
 				["core.keybinds"] = {
 					config = {
 						hook = function(keybinds)
-							keybinds.remap_event("norg", "i", "<C-CR>", "core.itero.next-iteration")
+							keybinds.remap_event("neorg", "i", "<C-CR>", "core.itero.next-iteration")
 						end,
 					},
 				},
