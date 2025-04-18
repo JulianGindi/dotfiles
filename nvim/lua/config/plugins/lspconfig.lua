@@ -38,6 +38,12 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["rust_analyzer"] = function()
+				nvim_lsp["rust_analyzer"].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+				})
+			end,
 			["omnisharp"] = function()
 				nvim_lsp["omnisharp"].setup({
 					cmd = { "dotnet", "/Users/jgindi/bin/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
@@ -94,6 +100,12 @@ return {
 			end,
 			["pyright"] = function()
 				nvim_lsp["pyright"].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+				})
+			end,
+			["gopls"] = function()
+				nvim_lsp["gopls"].setup({
 					on_attach = on_attach,
 					capabilities = capabilities,
 				})

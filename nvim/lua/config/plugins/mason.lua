@@ -17,6 +17,8 @@ return {
 				"ast_grep",
 				"pyright",
 				"omnisharp",
+        "gopls",
+        "rust_analyzer",
 			},
 		})
 
@@ -29,6 +31,7 @@ return {
 				"pylint",
 				"eslint_d",
 				"cljfmt",
+        -- "gofmt"
 			},
 		})
 	end,

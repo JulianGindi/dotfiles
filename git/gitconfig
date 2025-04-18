@@ -16,7 +16,7 @@
 	name = Julian Gindi
 	email = jgindi@riotgames.com
 [core]
-	editor = /usr/bin/vim
+	editor = /opt/homebrew/bin/nvim
 	excludesfile = /Users/julian/dotfiles/git/Python.gitignore
 [grep]
   linenumber = true

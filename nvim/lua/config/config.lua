@@ -25,3 +25,7 @@ keymap.set("n", "<leader>t", "<cmd>:tabnew<cr>")
 
 -- Clearning "highlights"
 keymap.set("n", "<leader>/", "<cmd>:noh<cr>")
+
+vim.diagnostic.config({
+  virtual_lines = { current_line = true }
+})
