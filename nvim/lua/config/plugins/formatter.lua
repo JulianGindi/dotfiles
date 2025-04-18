@@ -14,7 +14,6 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				clojure = { "cljfmt" },
-        -- go = { "gofmt" },
 			},
 			-- format_on_save = {
 			-- 	lsp_fallback = true,

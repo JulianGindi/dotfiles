@@ -33,6 +33,7 @@ return {
 				"vim",
 				"gitignore",
 				"c",
+        "c_sharp",
 				"rust",
 				"clojure",
 				"fennel",
