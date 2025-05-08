@@ -7,8 +7,6 @@ return {
 	},
 	config = function()
 		local nvim_lsp = require("lspconfig")
-		local mason_lspconfig = require("mason-lspconfig")
-
 		local protocol = require("vim.lsp.protocol")
 
 		local on_attach = function(client, bufnr)
@@ -26,84 +24,74 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		mason_lspconfig.setup_handlers({
-			function(server)
-				nvim_lsp[server].setup({
-					capabilities = capabilities,
-				})
+		-- Configure default setup for all servers
+		local default_config = {
+			capabilities = capabilities,
+		}
+
+		-- Configure servers with specific settings
+		nvim_lsp.clojure_lsp.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
+
+		nvim_lsp.rust_analyzer.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
+
+		nvim_lsp.omnisharp.setup({
+			cmd = { "dotnet", "/Users/jgindi/bin/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
+			on_attach = on_attach,
+			capabilities = capabilities,
+			handlers = {
+				["textDocument/definition"] = require("omnisharp_extended").handler,
+			},
+			settings = {
+				FormattingOptions = {
+					EnableEditorConfigSupport = true,
+				},
+				RoslynExtensionsOptions = {
+					EnableAnalyzersSupport = true,
+					EnableImportCompletion = true,
+				},
+				SDK = {
+					IncludePrereleases = true,
+				},
+				EnableMsBuildLoadProjectsOnDemand = true,
+				EnableImportCompletion = true,
+				EnableRoslynAnalyzers = true,
+				OrganizeImports = true,
+				AnalyzeOpenDocumentsOnly = true,
+			},
+			root_dir = function(fname)
+				return require("lspconfig.util").root_pattern("*.sln", "*.csproj")(fname) or vim.fn.getcwd()
 			end,
-			["clojure_lsp"] = function()
-				nvim_lsp["clojure_lsp"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["rust_analyzer"] = function()
-				nvim_lsp["rust_analyzer"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["omnisharp"] = function()
-				nvim_lsp["omnisharp"].setup({
-					cmd = { "dotnet", "/Users/jgindi/bin/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
-					on_attach = on_attach,
-					capabilities = capabilities,
-					handlers = {
-						["textDocument/definition"] = require("omnisharp_extended").handler,
-					},
-					settings = {
-						FormattingOptions = {
-							EnableEditorConfigSupport = true,
-						},
-						RoslynExtensionsOptions = {
-							EnableAnalyzersSupport = true,
-							EnableImportCompletion = true,
-						},
-						SDK = {
-							IncludePrereleases = true,
-						},
-						EnableMsBuildLoadProjectsOnDemand = true,
-						EnableImportCompletion = true,
-						EnableRoslynAnalyzers = true,
-						OrganizeImports = true,
-						AnalyzeOpenDocumentsOnly = true,
-					},
-					root_dir = function(fname)
-						return require("lspconfig.util").root_pattern("*.sln", "*.csproj")(fname) or vim.fn.getcwd()
-					end,
-				})
-			end,
-			["fennel_language_server"] = function()
-				nvim_lsp["fennel_language_server"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["ts_ls"] = function()
-				nvim_lsp["ts_ls"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["ast_grep"] = function()
-				nvim_lsp["ast_grep"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["jsonls"] = function()
-				nvim_lsp["jsonls"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["pyright"] = function()
-				nvim_lsp["pyright"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
+		})
+
+		nvim_lsp.fennel_language_server.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
+
+		nvim_lsp.ts_ls.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
+
+		nvim_lsp.ast_grep.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
+
+		nvim_lsp.jsonls.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
+
+		nvim_lsp.pyright.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
 		})
 	end,
 }
