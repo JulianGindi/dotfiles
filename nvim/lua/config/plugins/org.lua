@@ -32,7 +32,7 @@ return {
 					config = {
 						workspaces = {
 							notes = "~/Nextcloud/org/notes",
-              writing = "~/Nextcloud/org/writing",
+							writing = "~/Nextcloud/org/writing",
 							other = "~/Nextcloud/org/other",
 							riot = "~/Nextcloud/org/riot",
 						},

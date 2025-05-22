@@ -1,3 +1,0 @@
-return {
-	"wlangstroth/vim-racket",
-}

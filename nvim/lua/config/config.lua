@@ -13,6 +13,31 @@ o.title = true -- When on, the title of the window will be set to the value of '
 o.showmatch = true -- When a bracket is inserted, briefly jump to the matching one
 o.ignorecase = true -- Ignoring case when searching
 
+-- Filetype-specific indentation settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "python", "rust", "go" },
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp" },
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "typescript", "json", "html", "css", "lua", "vim" },
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+  end,
+})
+
 global.autoformat = false
 
 -- General Keyboard mappings
@@ -27,5 +52,5 @@ keymap.set("n", "<leader>t", "<cmd>:tabnew<cr>")
 keymap.set("n", "<leader>/", "<cmd>:noh<cr>")
 
 vim.diagnostic.config({
-  virtual_lines = { current_line = true }
+	virtual_lines = { current_line = true },
 })

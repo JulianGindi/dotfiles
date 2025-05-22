@@ -8,10 +8,9 @@ return {
 		require("mason").setup()
 
 		require("mason-lspconfig").setup({
-			-- automatic_installation removed in mason 2.0
 			ensure_installed = {
 				"clojure_lsp",
-				"fennel_language_server", 
+				"fennel_language_server",
 				"jsonls",
 				"ast_grep",
 				"pyright",
@@ -19,7 +18,6 @@ return {
 				"rust_analyzer",
 				"ts_ls",
 			},
-			-- Configure automatic_enable for Mason 2.0
 			automatic_enable = true,
 		})
 
