@@ -11,6 +11,23 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 
+		-- Directories where LSP should be disabled (absolute paths)
+		local disabled_lsp_directories = {
+			-- Add your large C# repo paths here, example:
+			"/Users/jgindi/perforce/workspace/jgindi_horde_macbook",
+		}
+
+		-- Function to check if current directory is within any disabled directory
+		local function is_lsp_disabled()
+			local cwd = vim.fn.getcwd()
+			for _, disabled_dir in ipairs(disabled_lsp_directories) do
+				if cwd:find("^" .. vim.pesc(disabled_dir)) then
+					return true
+				end
+			end
+			return false
+		end
+
 		-- Get capabilities from cmp_nvim_lsp
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -37,30 +54,38 @@ return {
 		lspconfig.pyright.setup(setup_opts())
 		lspconfig.ts_ls.setup(setup_opts())
 		lspconfig.rust_analyzer.setup(setup_opts())
+		lspconfig.lua_ls.setup(setup_opts())
 
-		-- Special configuration for OmniSharp
-		lspconfig.omnisharp.setup(setup_opts({
-			cmd = { "dotnet", "/Users/jgindi/bin/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
-			handlers = {
-				["textDocument/definition"] = require("omnisharp_extended").handler,
-			},
-			settings = {
-				FormattingOptions = { EnableEditorConfigSupport = true },
-				RoslynExtensionsOptions = {
-					EnableAnalyzersSupport = true,
-					EnableImportCompletion = true,
+		-- C# Language Server Configuration
+		if is_lsp_disabled() then
+			-- Lightweight C# support using ast-grep for disabled directories
+			-- ast_grep is already set up above and provides basic syntax support
+			print("LSP disabled for this directory - using lightweight C# support")
+		else
+			-- Full OmniSharp configuration for enabled directories
+			lspconfig.omnisharp.setup(setup_opts({
+				cmd = { "dotnet", "/Users/jgindi/bin/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
+				handlers = {
+					["textDocument/definition"] = require("omnisharp_extended").handler,
 				},
-				SDK = { IncludePrereleases = true },
-				EnableMsBuildLoadProjectsOnDemand = true,
-				EnableImportCompletion = true,
-				EnableRoslynAnalyzers = true,
-				OrganizeImports = true,
-				AnalyzeOpenDocumentsOnly = true,
-			},
-			root_dir = function(fname)
-				return require("lspconfig.util").root_pattern("*.sln", "*.csproj")(fname) or vim.fn.getcwd()
-			end,
-		}))
+				settings = {
+					FormattingOptions = { EnableEditorConfigSupport = true },
+					RoslynExtensionsOptions = {
+						EnableAnalyzersSupport = true,
+						EnableImportCompletion = true,
+					},
+					SDK = { IncludePrereleases = true },
+					EnableMsBuildLoadProjectsOnDemand = true,
+					EnableImportCompletion = true,
+					EnableRoslynAnalyzers = true,
+					OrganizeImports = true,
+					AnalyzeOpenDocumentsOnly = true,
+				},
+				root_dir = function(fname)
+					return require("lspconfig.util").root_pattern("*.sln", "*.csproj")(fname) or vim.fn.getcwd()
+				end,
+			}))
+		end
 
 		-- Setup completion options
 		vim.opt.completeopt = "menu,menuone,noselect"
