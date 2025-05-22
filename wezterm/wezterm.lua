@@ -2,7 +2,6 @@
 local wezterm = require("wezterm")
 local appearance = require("appearance")
 local keyboard = require("keyboard")
-local tabs = require("tabs")
 
 local os_name = wezterm.target_triple
 
@@ -12,9 +11,6 @@ appearance.setup_main(config)
 
 -- Setup keyboard shortcuts
 keyboard.setup_keys(config)
-
--- Setup tab renaming
-tabs.setup_rename(config)
 
 -- Events
 wezterm.on("update-status", appearance.draw_right_status)
