@@ -55,6 +55,7 @@ return {
 		lspconfig.ts_ls.setup(setup_opts())
 		lspconfig.rust_analyzer.setup(setup_opts())
 		lspconfig.lua_ls.setup(setup_opts())
+		lspconfig.clangd.setup(setup_opts())
 
 		-- C# Language Server Configuration
 		if is_lsp_disabled() then

@@ -7,7 +7,14 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
   config = function()
-    require("neo-tree").setup()
+    require("neo-tree").setup({
+      filesystem = {
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = false,
+        }
+      }
+    })
 
     -- set keymaps
     local keymap = vim.keymap

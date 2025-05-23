@@ -17,6 +17,7 @@ return {
 				"omnisharp",
 				"rust_analyzer",
 				"ts_ls",
+				"clangd",
 			},
 			automatic_enable = true,
 		})
