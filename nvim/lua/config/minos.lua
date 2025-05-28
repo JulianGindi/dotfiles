@@ -1,13 +1,13 @@
 local mod = {}
 
 -- Function to get and print current working directory
-function mod.print_cwd()
+local function print_cwd()
 	local cwd = vim.fn.getcwd()
 	print("Current working directory: " .. cwd)
 end
 
 local function setup_keybinding()
-	vim.keymap.set("n", "<localleader>m", mod.print_cwd, {
+	vim.keymap.set("n", "<localleader>m", print_cwd, {
 		desc = "Print current working directory",
 		noremap = true,
 		silent = true,
