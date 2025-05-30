@@ -33,3 +33,7 @@
 	program = gpg
 [init]
 	defaultBranch = main
+[diff]
+	tool = bc
+[difftool "bc"]
+	trustExitCode = true
