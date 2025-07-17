@@ -1,3 +1,3 @@
 require("config.lazy")
 require("config.config")
-require("config.minos")
+-- require("config.minos")

@@ -10,7 +10,7 @@ alias l="clear && pwd && ls -FGl"
 alias ll="ls -lh"
 alias u="cd .. && l"
 alias vim="nvim"
-alias vi="nvim"
+alias vi="/opt/homebrew/bin/vim"
 
 # Third-party activations
 

@@ -76,3 +76,5 @@ export PATH="/Applications/PyCharm.app/Contents/MacOS:$PATH"
 
 [ -f "/Users/jgindi/.ghcup/env" ] && . "/Users/jgindi/.ghcup/env" # ghcup-env
 export PATH="$PATH:$HOME/.bin"
+
+. "$HOME/.local/bin/env"
