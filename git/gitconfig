@@ -1,17 +1,110 @@
 [alias]
-      gg = git status
-      co = checkout
-      ec = config --global -e
-      up = !git pull --rebase origin && git prune
-      cob = checkout -b
-      cm = !git add -A && git commit -m
-      save = !git add -A && git commit -m 'SAVEPOINT'
-      wip = !git add -u && git commit -m "WIP"
-      undo = reset HEAD~1 --mixed
-      amend = commit -a --amend
-      wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-      bclean = "!f() { git branch --merged ${1-main} | grep -v " ${1-main}$" | xargs git branch -d; }; f"
-      bdone = "!f() { git checkout ${1-main} && git up && git bclean ${1-main}; }; f"
+    gg = status
+    co = checkout
+    ec = config --global -e
+    up = !git pull --rebase origin && git prune
+    cob = checkout -b
+    cm = !git add -A && git commit -m
+    save = !git add -A && git commit -m 'SAVEPOINT'
+    wip = !git add -u && git commit -m "WIP"
+    undo = reset HEAD~1 --mixed
+    amend = commit -a --amend
+    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+
+    # Enhanced branch cleanup aliases
+    # Clean merged branches (traditional merge commits)
+    bclean = "!f() { \
+        target=${1:-main}; \
+        git branch --merged $target | \
+        grep -v \" $target$\" | \
+        grep -v \"^\\*\" | \
+        xargs -r git branch -d; \
+    }; f"
+
+    # Clean integrated branches (handles squash merges and rebases)
+    bclean-integrated = "!f() { \
+        target=${1:-main}; \
+        git checkout $target 2>/dev/null || return 1; \
+        git for-each-ref refs/heads/ --format='%(refname:short)' | \
+        while read branch; do \
+            if [ \"$branch\" != \"$target\" ] && \
+               [ \"$(git merge-base $target $branch)\" = \"$(git rev-parse $branch)\" ]; then \
+                echo \"Deleting integrated branch: $branch\"; \
+                git branch -d $branch 2>/dev/null || git branch -D $branch; \
+            fi; \
+        done; \
+    }; f"
+
+    # Clean branches with no remote (handles deleted remote branches)
+    bclean-gone = "!f() { \
+        git for-each-ref refs/heads/ --format='%(refname:short) %(upstream:track)' | \
+        awk '$2 == \"[gone]\" {print $1}' | \
+        xargs -r git branch -D; \
+    }; f"
+
+    # Comprehensive cleanup (runs all cleanup methods)
+    bclean-all = "!f() { \
+        target=${1:-main}; \
+        echo \"Fetching latest changes...\"; \
+        git fetch --prune origin; \
+        echo \"Cleaning merged branches...\"; \
+        git bclean $target; \
+        echo \"Cleaning integrated branches...\"; \
+        git bclean-integrated $target; \
+        echo \"Cleaning branches with deleted remotes...\"; \
+        git bclean-gone; \
+        echo \"Branch cleanup complete!\"; \
+    }; f"
+
+    # Safe preview of what would be cleaned
+    bpreview = "!f() { \
+        target=${1:-main}; \
+        echo \"=== Branches that would be cleaned ===\"; \
+        echo \"Merged branches:\"; \
+        git branch --merged $target | grep -v \" $target$\" | grep -v \"^\\*\" | sed 's/^/  /'; \
+        echo \"Integrated branches:\"; \
+        git for-each-ref refs/heads/ --format='%(refname:short)' | \
+        while read branch; do \
+            if [ \"$branch\" != \"$target\" ] && \
+               [ \"$(git merge-base $target $branch)\" = \"$(git rev-parse $branch)\" ]; then \
+                echo \"  $branch\"; \
+            fi; \
+        done; \
+        echo \"Gone remote branches:\"; \
+        git for-each-ref refs/heads/ --format='%(refname:short) %(upstream:track)' | \
+        awk '$2 == \"[gone]\" {print \"  \" $1}'; \
+    }; f"
+
+    # Nuclear option - delete ALL branches except current and protected ones
+    bclean-nuclear = "!f() { \
+        protected=\"main|master|develop|development|staging|production\"; \
+        current=$(git branch --show-current); \
+        echo \"WARNING: This will delete ALL branches except: $protected and current branch ($current)\"; \
+        echo \"Protected branches: $(echo $protected | tr '|' ' ')\"; \
+        echo \"Current branch: $current\"; \
+        read -p \"Are you absolutely sure? Type 'DELETE ALL' to continue: \" confirm; \
+        if [ \"$confirm\" = \"DELETE ALL\" ]; then \
+            git branch | \
+            grep -v \"^\\*\" | \
+            grep -vE \"^\\s*(${protected})\\s*$\" | \
+            sed 's/^[[:space:]]*//' | \
+            while read branch; do \
+                echo \"Deleting branch: $branch\"; \
+                git branch -D \"$branch\"; \
+            done; \
+            echo \"Nuclear cleanup complete!\"; \
+        else \
+            echo \"Cancelled. No branches were deleted.\"; \
+        fi; \
+    }; f"
+
+    # Enhanced bdone that uses comprehensive cleanup
+    bdone = "!f() { \
+        target=${1:-main}; \
+        git checkout $target && \
+        git up && \
+        git bclean-all $target; \
+    }; f"
 [user]
 	name = Julian Gindi
 	email = jgindi@riotgames.com

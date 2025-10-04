@@ -11,6 +11,8 @@ alias ll="ls -lh"
 alias u="cd .. && l"
 alias vim="nvim"
 alias vi="/opt/homebrew/bin/vim"
+alias love="/Applications/love.app/Contents/MacOS/love"
 
 # Third-party activations
 
+set -gx PATH /opt/homebrew/sbin $PATH

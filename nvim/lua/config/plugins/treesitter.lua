@@ -38,6 +38,7 @@ return {
 				"clojure",
 				"fennel",
 				"python",
+				"elixir",
 			},
 			incremental_selection = {
 				enable = true,

@@ -9,8 +9,6 @@ return {
 		"hrsh7th/cmp-path", -- source for file system paths
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
-
 		-- Directories where LSP should be disabled (absolute paths)
 		local disabled_lsp_directories = {
 			-- Add your large C# repo paths here, example:
@@ -36,35 +34,48 @@ return {
 			-- Nothing here yet...
 		end
 
-		-- Common setup options for all servers
-		local setup_opts = function(extra_opts)
-			extra_opts = extra_opts or {}
-			local opts = {
-				on_attach = on_attach,
-				capabilities = capabilities,
-			}
-			return vim.tbl_deep_extend("force", opts, extra_opts)
+		-- Common config options
+		local base_config = {
+			capabilities = capabilities,
+		}
+
+		-- Helper function to merge configs
+		local function make_config(extra)
+			return vim.tbl_deep_extend("force", base_config, extra or {})
 		end
 
-		-- Set up servers using a simplified pattern
-		lspconfig.clojure_lsp.setup(setup_opts())
-		lspconfig.fennel_language_server.setup(setup_opts())
-		lspconfig.jsonls.setup(setup_opts())
-		lspconfig.ast_grep.setup(setup_opts())
-		lspconfig.pyright.setup(setup_opts())
-		lspconfig.ts_ls.setup(setup_opts())
-		lspconfig.rust_analyzer.setup(setup_opts())
-		lspconfig.lua_ls.setup(setup_opts())
-		lspconfig.clangd.setup(setup_opts())
+		-- Set up servers using new API
+		vim.lsp.config('clojure_lsp', make_config())
+		vim.lsp.config('fennel_language_server', make_config())
+		vim.lsp.config('jsonls', make_config())
+		vim.lsp.config('ast_grep', make_config())
+		vim.lsp.config('ts_ls', make_config())
+		vim.lsp.config('rust_analyzer', make_config())
+		vim.lsp.config('lua_ls', make_config())
+		vim.lsp.config('clangd', make_config())
+
+		-- Ruff/Python stuff
+		vim.lsp.config('ruff', make_config())
+
+		-- Custom ty configuration
+		vim.lsp.config('ty', make_config({
+			cmd = { 'uvx', 'ty', 'server' },
+			filetypes = { 'python' },
+			root_dir = function(fname)
+				return vim.fs.root(fname, { 'pyproject.toml', 'setup.py', '.git' })
+			end,
+			settings = {
+				-- ty language server settings go here
+			},
+		}))
 
 		-- C# Language Server Configuration
 		if is_lsp_disabled() then
 			-- Lightweight C# support using ast-grep for disabled directories
-			-- ast_grep is already set up above and provides basic syntax support
 			print("LSP disabled for this directory - using lightweight C# support")
 		else
 			-- Full OmniSharp configuration for enabled directories
-			lspconfig.omnisharp.setup(setup_opts({
+			vim.lsp.config('omnisharp', make_config({
 				cmd = { "dotnet", "/Users/jgindi/bin/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
 				handlers = {
 					["textDocument/definition"] = require("omnisharp_extended").handler,
@@ -83,10 +94,24 @@ return {
 					AnalyzeOpenDocumentsOnly = true,
 				},
 				root_dir = function(fname)
-					return require("lspconfig.util").root_pattern("*.sln", "*.csproj")(fname) or vim.fn.getcwd()
+					return vim.fs.root(fname, { '*.sln', '*.csproj' }) or vim.fn.getcwd()
 				end,
 			}))
+			vim.lsp.enable('omnisharp')
 		end
+
+		-- Enable all the configured servers
+		vim.lsp.enable('clojure_lsp')
+		vim.lsp.enable('fennel_language_server')
+		vim.lsp.enable('jsonls')
+		vim.lsp.enable('ast_grep')
+		vim.lsp.enable('ts_ls')
+		vim.lsp.enable('rust_analyzer')
+		vim.lsp.enable('lua_ls')
+		vim.lsp.enable('clangd')
+		vim.lsp.enable('ruff')
+		vim.lsp.enable('ty')
+		vim.lsp.enable('lexical')
 
 		-- Setup completion options
 		vim.opt.completeopt = "menu,menuone,noselect"

@@ -13,7 +13,7 @@ return {
 				"fennel_language_server",
 				"jsonls",
 				"ast_grep",
-				"pyright",
+				"ruff",
 				"omnisharp",
 				"rust_analyzer",
 				"ts_ls",
@@ -27,7 +27,7 @@ return {
 				"prettier",
 				"stylua", -- lua formatter
 				"isort", -- python formatter
-				"black", -- python formatter
+				"ruff", -- python formatter
 				"pylint",
 				"eslint_d",
 				"cljfmt",
